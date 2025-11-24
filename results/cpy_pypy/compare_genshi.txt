@@ -1,0 +1,7 @@
+### genshi_text ###
+Mean +- std dev: 15.5 ms +- 0.4 ms -> 5.5 ms +- 0.4 ms: 2.79x faster
+Significant (t=140.55)
+
+### genshi_xml ###
+Mean +- std dev: 33.7 ms +- 1.2 ms -> 15.0 ms +- 0.6 ms: 2.25x faster
+Significant (t=106.79)

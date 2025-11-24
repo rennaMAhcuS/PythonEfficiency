@@ -1,0 +1,3 @@
+### async_tree_io_tg ###
+Mean +- std dev: 773 ms +- 46 ms -> 312 ms +- 29 ms: 2.48x faster
+Significant (t=65.44)

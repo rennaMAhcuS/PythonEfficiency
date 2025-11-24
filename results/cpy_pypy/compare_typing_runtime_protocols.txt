@@ -1,0 +1,3 @@
+### typing_runtime_protocols ###
+Mean +- std dev: 341 us +- 2 us -> 161 us +- 89 us: 2.12x faster
+Significant (t=15.72)

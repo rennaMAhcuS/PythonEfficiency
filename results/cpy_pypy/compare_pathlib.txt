@@ -1,0 +1,3 @@
+### pathlib ###
+Mean +- std dev: 16.1 ms +- 0.6 ms -> 11.0 ms +- 0.9 ms: 1.46x faster
+Significant (t=36.57)

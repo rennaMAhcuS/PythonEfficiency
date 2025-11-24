@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/bin/pyperformance", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 422, in main
+    _main()
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 408, in _main
+    cmd_compare(options)
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/commands.py", line 263, in cmd_compare
+    results = compare_results(options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/compare.py", line 362, in compare_results
+    result = BenchmarkResult(base_bench, changed_bench)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/compare.py", line 244, in __init__
+    raise RuntimeError("base and changed don't have the same number of values")
+RuntimeError: base and changed don't have the same number of values

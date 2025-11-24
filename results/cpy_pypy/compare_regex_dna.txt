@@ -1,0 +1,3 @@
+### regex_dna ###
+Mean +- std dev: 134 ms +- 5 ms -> 67 ms +- 6 ms: 1.98x faster
+Significant (t=66.83)

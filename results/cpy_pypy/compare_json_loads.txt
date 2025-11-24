@@ -1,0 +1,3 @@
+### json_loads ###
+Mean +- std dev: 15.7 us +- 0.3 us -> 5.5 us +- 0.1 us: 2.87x faster
+Significant (t=248.66)

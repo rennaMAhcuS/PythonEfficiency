@@ -1,0 +1,3 @@
+### many_optionals ###
+Mean +- std dev: 479 us +- 17 us -> 147 us +- 23 us: 3.26x faster
+Significant (t=90.42)

@@ -1,0 +1,3 @@
+### async_generators ###
+Mean +- std dev: 199 ms +- 2 ms -> 144 ms +- 4 ms: 1.38x faster
+Significant (t=91.13)

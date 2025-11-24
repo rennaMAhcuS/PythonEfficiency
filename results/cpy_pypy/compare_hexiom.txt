@@ -1,0 +1,3 @@
+### hexiom ###
+Mean +- std dev: 4.74 ms +- 0.02 ms -> 1.18 ms +- 0.22 ms: 4.00x faster
+Significant (t=124.70)

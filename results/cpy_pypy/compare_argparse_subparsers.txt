@@ -1,0 +1,3 @@
+### subparsers ###
+Mean +- std dev: 34.5 ms +- 0.8 ms -> 14.5 ms +- 0.5 ms: 2.38x faster
+Significant (t=169.36)

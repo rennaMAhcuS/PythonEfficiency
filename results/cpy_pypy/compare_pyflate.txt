@@ -1,0 +1,3 @@
+### pyflate ###
+Mean +- std dev: 308 ms +- 8 ms -> 78 ms +- 2 ms: 3.98x faster
+Significant (t=221.58)

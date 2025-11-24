@@ -1,0 +1,3 @@
+### sphinx ###
+Mean +- std dev: 633 ms +- 27 ms -> 1616 ms +- 346 ms: 2.55x slower
+Significant (t=-21.91)

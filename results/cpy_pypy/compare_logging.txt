@@ -1,0 +1,11 @@
+### logging_format ###
+Mean +- std dev: 3.81 us +- 0.09 us -> 1.88 us +- 0.03 us: 2.03x faster
+Significant (t=159.57)
+
+### logging_silent ###
+Mean +- std dev: 80.9 ns +- 1.6 ns -> 1.0 ns +- 0.0 ns: 78.43x faster
+Significant (t=380.29)
+
+### logging_simple ###
+Mean +- std dev: 3.61 us +- 0.18 us -> 1.53 us +- 0.03 us: 2.36x faster
+Significant (t=90.08)

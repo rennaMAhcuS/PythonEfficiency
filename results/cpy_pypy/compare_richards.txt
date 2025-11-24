@@ -1,0 +1,3 @@
+### richards ###
+Mean +- std dev: 35.9 ms +- 1.0 ms -> 1.1 ms +- 0.1 ms: 31.56x faster
+Significant (t=266.68)

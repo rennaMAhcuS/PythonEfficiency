@@ -1,0 +1,7 @@
+### pprint_pformat ###
+Mean +- std dev: 1.02 sec +- 0.02 sec -> 0.26 sec +- 0.01 sec: 3.86x faster
+Significant (t=235.53)
+
+### pprint_safe_repr ###
+Mean +- std dev: 497 ms +- 11 ms -> 136 ms +- 3 ms: 3.66x faster
+Significant (t=255.12)

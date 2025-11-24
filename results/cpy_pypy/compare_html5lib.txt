@@ -1,0 +1,3 @@
+### html5lib ###
+Mean +- std dev: 35.7 ms +- 2.6 ms -> 14.7 ms +- 1.3 ms: 2.42x faster
+Significant (t=55.80)

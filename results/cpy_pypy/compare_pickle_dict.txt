@@ -1,0 +1,3 @@
+### pickle_dict ###
+Mean +- std dev: 18.4 us +- 0.4 us -> 98.6 us +- 3.1 us: 5.36x slower
+Significant (t=-199.47)

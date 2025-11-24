@@ -1,0 +1,3 @@
+### generators ###
+Mean +- std dev: 28.0 ms +- 0.9 ms -> 12.9 ms +- 0.4 ms: 2.18x faster
+Significant (t=126.36)

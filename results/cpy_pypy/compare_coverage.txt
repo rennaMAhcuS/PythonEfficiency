@@ -1,0 +1,3 @@
+### coverage ###
+Mean +- std dev: 43.6 ms +- 1.1 ms -> 129.4 ms +- 4.9 ms: 2.97x slower
+Significant (t=-131.04)

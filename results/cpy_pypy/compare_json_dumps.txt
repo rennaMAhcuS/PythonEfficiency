@@ -1,0 +1,3 @@
+### json_dumps ###
+Mean +- std dev: 7.35 ms +- 0.18 ms -> 20.20 ms +- 0.34 ms: 2.75x slower
+Significant (t=-258.89)

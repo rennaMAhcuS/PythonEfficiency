@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/bin/pyperformance", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 422, in main
+    _main()
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 408, in _main
+    cmd_compare(options)
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/commands.py", line 263, in cmd_compare
+    results = compare_results(options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/compare.py", line 353, in compare_results
+    changed_suite = pyperf.BenchmarkSuite.load(options.changed_filename)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 788, in load
+    fp = cls._load_open(filename)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 778, in _load_open
+    return open(filename, "r", encoding="utf-8")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/pypy_sqlglot_v2_transpile.json'

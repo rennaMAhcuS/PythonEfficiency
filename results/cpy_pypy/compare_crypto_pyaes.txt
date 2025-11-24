@@ -1,0 +1,3 @@
+### crypto_pyaes ###
+Mean +- std dev: 55.8 ms +- 1.8 ms -> 2.7 ms +- 0.1 ms: 20.31x faster
+Significant (t=228.24)

@@ -40,11 +40,38 @@ Well, that was just the first test, maybe too soon for calling in a judgement.
 
 ### Info
 
-Get info on Startup / short-lived scripts - measures interpreter startup and import overhead.
+- Get info on Startup / short-lived scripts - measures interpreter startup and import overhead.
+
+- Versions of the tools used in `my_benchmarks`:
+
+```
+python==3.13
+pypy==3.11
+Cython==3.1.4
+numba==0.62.0
+numpy==2.3.3
+```
 
 ## To Do
 
-- Interpreter overhead
-- Syscalls - FileIO and stuff
-- GPU
-- Benchmark more numpy and numba
+- Learn more on Numba JIT.
+- Run some actual benchmarks.
+
+## Benchmarking with standard benchmarking tests
+
+### Some notes
+
+- Pyperf / Pyperformance
+- airspeed velocity - benchmarking Python PyPI packages
+- numba, cython can't be directly compared with cpython
+- cpython and pypy can be compared, as the benchmark suite is the same. (No code modification required.)
+- Couldn't find any standard benchmark suite for cython to work on, directly.
+- The computed benchmarking for numba was done with python 3.6 - Results in the numba benchmark results link.
+
+### References
+
+- [Pyperformance](https://pyperformance.readthedocs.io): pyperf - engine, pyperformance - full suite
+- [Numba benchmark suite](https://github.com/numba/numba-benchmark)
+- [Numba bechmark results](https://numba.pydata.org/numba-benchmark): unable to run on my system / a GPU server - Some version incompatibility issues.
+- [ASV](https://github.com/airspeed-velocity/asv) 
+- [Pybenchmarks](https://pybenchmarks.org): this one has a lot of data benchmark tests, espically for basic programs. - Don't know about the realibility.

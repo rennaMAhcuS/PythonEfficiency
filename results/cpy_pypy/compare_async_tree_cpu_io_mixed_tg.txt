@@ -1,0 +1,3 @@
+### async_tree_cpu_io_mixed_tg ###
+Mean +- std dev: 547 ms +- 31 ms -> 497 ms +- 26 ms: 1.10x faster
+Significant (t=9.73)

@@ -1,0 +1,3 @@
+### deltablue ###
+Mean +- std dev: 2.67 ms +- 0.07 ms -> 0.19 ms +- 0.01 ms: 14.14x faster
+Significant (t=277.28)

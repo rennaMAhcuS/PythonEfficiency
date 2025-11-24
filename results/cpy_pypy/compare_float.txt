@@ -1,0 +1,3 @@
+### float ###
+Mean +- std dev: 55.4 ms +- 2.7 ms -> 7.2 ms +- 0.7 ms: 7.67x faster
+Significant (t=132.77)

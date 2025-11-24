@@ -1,0 +1,107 @@
+CoreLanguage-Interpreter
+- comprehensions
+- generators
+- coroutines
+- async_generators
+- unpack_sequence
+- deepcopy
+- float
+- pidigits
+- fannkuch
+- nbody
+- spectral_norm
+- hexiom
+- nqueens
+- chaos
+- go
+- richards
+- richards_super
+- deltablue
+- telco
+- typing_runtime_protocols
+
+Async-Concurrency
+- async_tree
+- async_tree_tg
+- async_tree_io
+- async_tree_io_tg
+- async_tree_cpu_io_mixed
+- async_tree_cpu_io_mixed_tg
+- async_tree_memoization
+- async_tree_memoization_tg
+- asyncio_tcp
+- asyncio_tcp_ssl
+- asyncio_websockets
+- concurrent_imap
+- tornado_http
+
+IO-Formats-Parsing
+- json_loads
+- json_dumps
+- tomli_loads
+- xml_etree
+- html5lib
+- regex_compile
+- regex_dna
+- regex_effbot
+- regex_v8
+- logging
+- pprint
+- python_startup
+- python_startup_no_site
+- coverage
+- argparse
+- argparse_subparsers
+
+Pickle-Serialization
+- pickle
+- pickle_list
+- pickle_dict
+- pickle_pure_python
+- unpickle
+- unpickle_list
+- unpickle_pure_python
+
+Filesystem-OS-Stdlib
+- pathlib
+- gc_collect
+- gc_traversal
+
+Crypto-Compression
+- crypto_pyaes
+- pyflate
+
+Database-SQL
+- sqlite_synth
+- sqlalchemy_declarative
+- sqlalchemy_imperative
+- sqlglot_v2
+- sqlglot_v2_parse
+- sqlglot_v2_optimize
+- sqlglot_v2_transpile
+
+Templates-WebFrameworks
+- django_template
+- chameleon
+- genshi
+- mako
+- sphinx
+
+Numerical-Scientific
+- scimark
+- meteor_contest
+- mdp
+- sympy
+- raytrace
+
+ThirdParty-DomainWorkloads
+- docutils
+- dulwich_log
+- networkx
+- networkx_connected_components
+- networkx_k_core
+- xdsl
+
+Tokenizers-LanguageTools
+- bpe_tokeniser
+- 2to3

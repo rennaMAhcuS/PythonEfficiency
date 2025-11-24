@@ -1,0 +1,3 @@
+### spectral_norm ###
+Mean +- std dev: 78.4 ms +- 0.5 ms -> 3.4 ms +- 0.1 ms: 23.38x faster
+Significant (t=1260.73)

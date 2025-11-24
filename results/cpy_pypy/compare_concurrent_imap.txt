@@ -1,0 +1,7 @@
+### bench_mp_pool ###
+Mean +- std dev: 62.5 ms +- 1.8 ms -> 128.5 ms +- 3.9 ms: 2.06x slower
+Significant (t=-119.97)
+
+### bench_thread_pool ###
+Mean +- std dev: 632 us +- 36 us -> 1789 us +- 130 us: 2.83x slower
+Significant (t=-66.45)

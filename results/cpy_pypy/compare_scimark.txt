@@ -1,0 +1,19 @@
+### scimark_fft ###
+Mean +- std dev: 230 ms +- 7 ms -> 5 ms +- 0 ms: 50.95x faster
+Significant (t=249.77)
+
+### scimark_lu ###
+Mean +- std dev: 74.6 ms +- 2.4 ms -> 0.9 ms +- 0.0 ms: 80.90x faster
+Significant (t=234.44)
+
+### scimark_monte_carlo ###
+Mean +- std dev: 47.4 ms +- 1.2 ms -> 1.9 ms +- 0.1 ms: 25.31x faster
+Significant (t=291.86)
+
+### scimark_sor ###
+Mean +- std dev: 89.1 ms +- 1.7 ms -> 0.7 ms +- 0.0 ms: 133.47x faster
+Significant (t=410.59)
+
+### scimark_sparse_mat_mult ###
+Mean +- std dev: 3.23 ms +- 0.08 ms -> 0.10 ms +- 0.00 ms: 31.26x faster
+Significant (t=286.98)

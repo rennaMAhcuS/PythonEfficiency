@@ -1,0 +1,3 @@
+### pickle ###
+Mean +- std dev: 6.85 us +- 0.20 us -> 20.21 us +- 0.88 us: 2.95x slower
+Significant (t=-115.32)

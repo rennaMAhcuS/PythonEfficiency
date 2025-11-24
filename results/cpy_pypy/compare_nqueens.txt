@@ -1,0 +1,3 @@
+### nqueens ###
+Mean +- std dev: 59.8 ms +- 1.9 ms -> 17.2 ms +- 0.2 ms: 3.47x faster
+Significant (t=175.39)

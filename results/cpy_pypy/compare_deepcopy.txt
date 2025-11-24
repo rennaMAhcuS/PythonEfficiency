@@ -1,0 +1,11 @@
+### deepcopy ###
+Mean +- std dev: 256 us +- 3 us -> 60 us +- 2 us: 4.25x faster
+Significant (t=503.75)
+
+### deepcopy_memo ###
+Mean +- std dev: 31.0 us +- 0.3 us -> 5.9 us +- 0.1 us: 5.28x faster
+Significant (t=634.37)
+
+### deepcopy_reduce ###
+Mean +- std dev: 2.17 us +- 0.07 us -> 0.51 us +- 0.02 us: 4.29x faster
+Significant (t=175.78)
