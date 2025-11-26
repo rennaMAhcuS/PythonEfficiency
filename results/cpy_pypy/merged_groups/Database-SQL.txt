@@ -1,0 +1,85 @@
+========== sqlite_synth ==========
+### sqlite_synth ###
+Mean +- std dev: 1.33 us +- 0.04 us -> 2.15 us +- 0.12 us: 1.62x slower
+Significant (t=-51.42)
+========== sqlalchemy_declarative ==========
+Traceback (most recent call last):
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/bin/pyperformance", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 422, in main
+    _main()
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 408, in _main
+    cmd_compare(options)
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/commands.py", line 263, in cmd_compare
+    results = compare_results(options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/compare.py", line 353, in compare_results
+    changed_suite = pyperf.BenchmarkSuite.load(options.changed_filename)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 788, in load
+    fp = cls._load_open(filename)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 778, in _load_open
+    return open(filename, "r", encoding="utf-8")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/pypy_sqlalchemy_declarative.json'
+
+========== sqlalchemy_imperative ==========
+### sqlalchemy_imperative ###
+Mean +- std dev: 7.67 ms +- 0.20 ms -> 17.23 ms +- 3.07 ms: 2.25x slower
+Significant (t=-24.06)
+========== sqlglot_v2 ==========
+### sqlglot_v2_normalize ###
+Mean +- std dev: 65.6 ms +- 1.4 ms -> 36.6 ms +- 10.1 ms: 1.79x faster
+Significant (t=21.92)
+========== sqlglot_v2_parse ==========
+Traceback (most recent call last):
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/bin/pyperformance", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 422, in main
+    _main()
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 408, in _main
+    cmd_compare(options)
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/commands.py", line 263, in cmd_compare
+    results = compare_results(options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/compare.py", line 353, in compare_results
+    changed_suite = pyperf.BenchmarkSuite.load(options.changed_filename)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 788, in load
+    fp = cls._load_open(filename)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 778, in _load_open
+    return open(filename, "r", encoding="utf-8")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/pypy_sqlglot_v2_parse.json'
+
+========== sqlglot_v2_optimize ==========
+### sqlglot_v2_optimize ###
+Mean +- std dev: 31.9 ms +- 1.2 ms -> 84.8 ms +- 24.7 ms: 2.66x slower
+Significant (t=-16.56)
+========== sqlglot_v2_transpile ==========
+Traceback (most recent call last):
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/bin/pyperformance", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 422, in main
+    _main()
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/cli.py", line 408, in _main
+    cmd_compare(options)
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/commands.py", line 263, in cmd_compare
+    results = compare_results(options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperformance/compare.py", line 353, in compare_results
+    changed_suite = pyperf.BenchmarkSuite.load(options.changed_filename)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 788, in load
+    fp = cls._load_open(filename)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/emsr/Projects/PythonEfficiency/.venv/lib/python3.11/site-packages/pyperf/_bench.py", line 778, in _load_open
+    return open(filename, "r", encoding="utf-8")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/pypy_sqlglot_v2_transpile.json'
+

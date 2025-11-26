@@ -1,0 +1,28 @@
+========== pickle ==========
+### pickle ###
+Mean +- std dev: 6.85 us +- 0.20 us -> 20.21 us +- 0.88 us: 2.95x slower
+Significant (t=-115.32)
+========== pickle_list ==========
+### pickle_list ###
+Mean +- std dev: 2.56 us +- 0.14 us -> 14.34 us +- 0.48 us: 5.60x slower
+Significant (t=-181.45)
+========== pickle_dict ==========
+### pickle_dict ###
+Mean +- std dev: 18.4 us +- 0.4 us -> 98.6 us +- 3.1 us: 5.36x slower
+Significant (t=-199.47)
+========== pickle_pure_python ==========
+### pickle_pure_python ###
+Mean +- std dev: 207 us +- 5 us -> 22 us +- 1 us: 9.59x faster
+Significant (t=268.46)
+========== unpickle ==========
+### unpickle ###
+Mean +- std dev: 8.66 us +- 0.32 us -> 32.03 us +- 1.25 us: 3.70x slower
+Significant (t=-140.37)
+========== unpickle_list ==========
+### unpickle_list ###
+Mean +- std dev: 2.56 us +- 0.03 us -> 10.92 us +- 0.26 us: 4.27x slower
+Significant (t=-249.61)
+========== unpickle_pure_python ==========
+### unpickle_pure_python ###
+Mean +- std dev: 164 us +- 7 us -> 32 us +- 2 us: 5.12x faster
+Significant (t=150.30)

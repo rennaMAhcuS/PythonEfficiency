@@ -1,0 +1,8 @@
+========== bpe_tokeniser ==========
+### bpe_tokeniser ###
+Mean +- std dev: 3.07 sec +- 0.04 sec -> 1.32 sec +- 0.04 sec: 2.33x faster
+Significant (t=236.41)
+========== 2to3 ==========
+### 2to3 ###
+Mean +- std dev: 175 ms +- 5 ms -> 774 ms +- 13 ms: 4.42x slower
+Significant (t=-333.18)

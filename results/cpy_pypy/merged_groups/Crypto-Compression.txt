@@ -1,0 +1,8 @@
+========== crypto_pyaes ==========
+### crypto_pyaes ###
+Mean +- std dev: 55.8 ms +- 1.8 ms -> 2.7 ms +- 0.1 ms: 20.31x faster
+Significant (t=228.24)
+========== pyflate ==========
+### pyflate ###
+Mean +- std dev: 308 ms +- 8 ms -> 78 ms +- 2 ms: 3.98x faster
+Significant (t=221.58)

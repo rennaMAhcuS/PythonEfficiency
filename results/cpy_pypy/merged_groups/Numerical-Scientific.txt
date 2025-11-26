@@ -1,0 +1,48 @@
+========== scimark ==========
+### scimark_fft ###
+Mean +- std dev: 230 ms +- 7 ms -> 5 ms +- 0 ms: 50.95x faster
+Significant (t=249.77)
+
+### scimark_lu ###
+Mean +- std dev: 74.6 ms +- 2.4 ms -> 0.9 ms +- 0.0 ms: 80.90x faster
+Significant (t=234.44)
+
+### scimark_monte_carlo ###
+Mean +- std dev: 47.4 ms +- 1.2 ms -> 1.9 ms +- 0.1 ms: 25.31x faster
+Significant (t=291.86)
+
+### scimark_sor ###
+Mean +- std dev: 89.1 ms +- 1.7 ms -> 0.7 ms +- 0.0 ms: 133.47x faster
+Significant (t=410.59)
+
+### scimark_sparse_mat_mult ###
+Mean +- std dev: 3.23 ms +- 0.08 ms -> 0.10 ms +- 0.00 ms: 31.26x faster
+Significant (t=286.98)
+========== meteor_contest ==========
+### meteor_contest ###
+Mean +- std dev: 75.5 ms +- 2.0 ms -> 39.3 ms +- 0.8 ms: 1.92x faster
+Significant (t=128.89)
+========== mdp ==========
+### mdp ###
+Mean +- std dev: 1.55 sec +- 0.03 sec -> 3.43 sec +- 0.04 sec: 2.21x slower
+Significant (t=-319.27)
+========== sympy ==========
+### sympy_expand ###
+Mean +- std dev: 248 ms +- 9 ms -> 120 ms +- 19 ms: 2.08x faster
+Significant (t=46.55)
+
+### sympy_integrate ###
+Mean +- std dev: 11.6 ms +- 0.4 ms -> 40.3 ms +- 5.2 ms: 3.48x slower
+Significant (t=-42.37)
+
+### sympy_str ###
+Mean +- std dev: 153 ms +- 6 ms -> 100 ms +- 24 ms: 1.53x faster
+Significant (t=16.75)
+
+### sympy_sum ###
+Mean +- std dev: 84.9 ms +- 3.4 ms -> 75.9 ms +- 17.9 ms: 1.12x faster
+Significant (t=3.83)
+========== raytrace ==========
+### raytrace ###
+Mean +- std dev: 195 ms +- 1 ms -> 6 ms +- 0 ms: 31.27x faster
+Significant (t=1342.50)

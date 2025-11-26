@@ -1,0 +1,24 @@
+========== docutils ==========
+### docutils ###
+Mean +- std dev: 1.42 sec +- 0.04 sec -> 1.86 sec +- 0.33 sec: 1.31x slower
+Significant (t=-10.25)
+========== dulwich_log ==========
+### dulwich_log ###
+Mean +- std dev: 29.4 ms +- 1.2 ms -> 34.5 ms +- 1.6 ms: 1.18x slower
+Significant (t=-20.47)
+========== networkx ==========
+### shortest_path ###
+Mean +- std dev: 308 ms +- 15 ms -> 345 ms +- 52 ms: 1.12x slower
+Significant (t=-5.31)
+========== networkx_connected_components ==========
+### connected_components ###
+Mean +- std dev: 286 ms +- 5 ms -> 336 ms +- 39 ms: 1.18x slower
+Significant (t=-10.12)
+========== networkx_k_core ==========
+### k_core ###
+Mean +- std dev: 1.85 sec +- 0.05 sec -> 1.48 sec +- 0.12 sec: 1.25x faster
+Significant (t=21.97)
+========== xdsl ==========
+### xdsl_constant_fold ###
+Mean +- std dev: 23.7 ms +- 1.8 ms -> 6.0 ms +- 0.3 ms: 3.96x faster
+Significant (t=73.93)

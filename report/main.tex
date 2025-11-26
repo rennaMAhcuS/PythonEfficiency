@@ -1,5 +1,419 @@
-\documentclass{article}
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{margin=0.8in}
+
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{mathpazo}
+\usepackage{graphicx, float, subcaption}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue
+}
+
+\setlength{\parindent}{0pt} 
+
+\title{\huge Performance Analysis \\ \Large Interpreted, Compiled, and JIT Execution}
+\author{Mohana Evuri, 23B1017 \\ Department of CSE}
+\date{Fall 2025}
 
 \begin{document}
-Hi
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\begin{abstract}
+This report benchmarks CPython, Numba, PyPy, and Cython using a mix
+of custom benchmarks and some standard tests. By measuring the
+performances of interpreted code, compiled code and JIT execution
+(under identical conditions), we compare execution speed and
+try to identify for which workloads which runtime performs better.
+\end{abstract}
+
+\section{Introduction}
+
+Python has several execution environments that differ in design,
+performance goals, and compilation strategies.
+
+\subsection{CPython}
+
+CPython is the reference implementation and the default
+\textbf{interpreter} used by most users. It compiles Python source
+to bytecode and executes it on a virtual machine,
+prioritizing portability and compatibility.
+
+\subsection{Numba}
+
+Numba is a \textbf{just-in-time compiler} built on LLVM. It
+accelerates numerical Python code by compiling selected functions
+to machine code at runtime, often delivering substantial speedups
+for array-oriented and numeric workloads with minimal code changes.
+
+Numba is activated through decorators that wrap a function.
+Some of the wrappers used are \texttt{@njit},
+\texttt{@jit(nopython=true)}. When the function is first called,
+the wrapper triggers Numba's JIT compiler, which specializes and
+compiles the function to machine code. After that, calls run the
+compiled version.
+
+It is shipped as a python library and can be imported like any
+other package.
+
+\subsection{PyPy}
+
+PyPy is an alternative Python \textbf{interpreter} that includes a
+\textbf{tracing just-in-time} compiler. Its goal is to improve the
+performance of long-running programs by optimizing frequently
+executed paths while remaining largely compatible with standard
+Python.
+
+The difference between PyPy and Numba is that PyPy is an interpreter
+which tries to detect the parts of the python code which can be
+optimized on its own, whereas with Numba, we mention the part of the
+code we want to optimize with JIT. Also, Numba is more of a numerical
+Python code optimizer.
+
+\subsection{Cython}
+
+Cython is a \textbf{static compiler} that translates annotated
+\textbf{Python-like code} into C. By allowing optional type
+declarations, it produces efficient C extensions that can
+significantly outperform pure Python, especially in compute-heavy
+loops.
+
+Cython code is invoked by compiling \texttt{.pyx} files into C
+and then building them as Python extension modules. This is
+done with build tools such as \texttt{setuptools} and
+\texttt{cythonize}, which generate the C source, compile it with
+a system compiler, and produce a loadable \texttt{.so} module.
+Once built, the \texttt{.pyx} module is imported and used like any
+regular Python module, with calls dispatched directly into the
+compiled C code.
+
+It is also shipped as a python package.
+
+\vspace{20pt}
+
+This report compares these four tools to highlight their performance
+differences across custom and standard benchmarks.
+
+\section{My Benchmarks}
+
+This section summarizes the custom benchmarks made by me,
+that I used to compare the performances of CPython, Numba, Cython,
+and PyPy. The tests cover recursion, numeric loops, nested loops,
+and string operations, with performance graphs included for each case.
+
+\subsection{Fibonacci}
+Calculation of the nth fibonacci number via pure recursion.
+
+A pure recursive benchmark stressing call overhead and interpreter
+efficiency.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/fib_benchmark_init.png}
+        \caption{Initial run}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/fib_benchmark.png}
+        \caption{Average performance}
+    \end{subfigure}
+    \caption{Fibonacci Benchmark results}
+\end{figure}
+
+\subsection{Matrix Multiplication}
+Multiplying 2 matrices via nested loops.
+
+A manual nested-loop matrix multiply stressing arithmetic throughput
+and cache behavior.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/matmul_benchmark_init.png}
+        \caption{Initial run}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/matmul_benchmark.png}
+        \caption{Average performance}
+    \end{subfigure}
+    \caption{Matrix Multiplication Benchmark results}
+\end{figure}
+
+\subsection{String and Memory Test}
+This test performs repeated string creation and manipulation to
+evaluate memory allocation costs and object-handling efficiency
+across the different runtimes.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/string_mem_benchmark_init.png}
+        \caption{Initial run}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/string_mem_benchmark.png}
+        \caption{Average performance}
+    \end{subfigure}
+    \caption{String and Memory Benchmark results}
+\end{figure}
+
+\subsection{Sum of Squares}
+Sum of the first n squares.
+
+A loop-heavy arithmetic benchmark that isolates basic numeric
+throughput.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/sq_sum_benchmark_init.png}
+        \caption{Initial run}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/my/sq_sum_benchmark.png}
+        \caption{Average performance}
+    \end{subfigure}
+    \caption{Sum of Squares Benchmark results}
+\end{figure}
+
+\subsection{Observations}
+
+After observing the results of the above mentioned custom benchmarks,
+we can get a few insights: The first call to the function takes significantly
+more time than the next few runs in JIT. This is because in the first call,
+the function is compiled and optimized before running, and the future runs
+use this compiled optimized version instead of the normal one. Quite unexpectedly,
+the Cython variant is not as fast as the C++ implementation or the JIT compilation
+of the code in general, but is faster than the CPython interpreter. PyPy does a pretty
+good job of taking the same python code (which CPython takes) and optimizing the
+run wherever it can. Numba is pretty good at pure mathematical operations, but when we
+introduce non numerical objects, such as dictionaries and strings, it loses its speed.
+Numba can be fine tuned with different wrappers, as seen in the NumbaOpt variant.
+\vspace{10pt}
+
+The code for these benchmarks is available in the GitHub repo mentioned in the
+references.
+
+\section{Standard Benchmarks}
+Apart from the custom benchmarks, there are several benchmarking
+suites and tools commonly used for evaluating Python
+performance.
+
+\subsection{Benchmark suites}
+\begin{itemize}
+    \item \textbf{PyPerformance}: The standard benchmark suite used for
+    comparing Python interpreters. It runs a fixed set of tests through
+    the \texttt{pyperf} engine and requires no code modifications, making
+    it suitable for comparing CPython and PyPy directly.
+
+    \item \textbf{Numba Benchmarks}: The official benchmark suite for
+    Numba. It targets older Python versions (notably Python 3.6) and
+    focuses on numerical benchmarks and also some GPU benchmarks.
+\end{itemize}
+
+\subsection{Benchmarking tools}
+\begin{itemize}
+    \item \textbf{pyperf}: Provides process isolation, warmups, and
+    robust statistics. This is the central framework used by the
+    PyPerformance benchmark suite.
+
+    \item \textbf{ASV}: A benchmarking framework for Python projects.
+    It runs user-defined benchmarks, tracks performance across commits
+    and releases, and produces reproducible, versioned performance
+    histories.
+\end{itemize}
+
+I couldn't find any standard benchmarking suite for Cython.
+
+\subsection{CPython vs PyPy}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/pypy_speed_graph.png}
+    \caption{PyPy vs CPython3.7 - Taken from the PyPy website}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/std/All.png}
+    \caption{PyPy7.3 vs Cpython3.11 - Benchmarks (without labels)}
+    \label{fig:benchAll}
+\end{figure}
+
+\textbf{Versions used}: CPython 3.11, PyPy 7.3 (Which implements Python3.11)
+
+These results mentioned in Figure \ref{fig:benchAll} are computed using the
+PyPerformance benchmark suite to compare the performances of the CPython and
+the PyPy interpreters.
+
+The test suite was run on ~80 benchmark programs, which are grouped into the above
+categories such as FileIO, WebFrameworks, Concurrency, Core Language / Interpreter.
+
+We will go through each of the subcategories and note down the inferences:
+
+\subsubsection{Core Language / Interpreter}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/std/CoreLanguage-Interpreter.png}
+    \caption{CoreLanguage-Interpreter results}
+\end{figure}
+
+PyPy is faster than CPython in almost every CoreLanguage-Interpreter benchmark. The
+improvements are typically in the range of 2 - 35 times faster execution for
+pure-Python and object-heavy workloads. These results align with PyPy's JIT compiled
+execution model, which optimizes on tight numeric kernels, loops, and Object oriented
+workloads. This shows that PyPy performs better for pure-Python computational
+workloads.
+
+\subsubsection{Numerical}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{images/std/Numerical-Scientific.png}
+        \caption{Numerical-Scientific results}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{images/std/Crypto-Compression.png}
+        \caption{Crypto-Compression results}
+    \end{subfigure}
+    \caption{Numerical and math intensive}
+\end{figure}
+
+PyPy is faster here too: it has large gains on tight, arithmetic-heavy
+loops, with SciMark and ray-tracing tests seeing 25 - 130 times speedup and 
+crypto/deflate benchmarks also improving sharply. So, we can tell that PyPy performs
+better in pure numerical and mathematical benchmarks too.
+
+\subsubsection{Pickle and Serialization}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/std/Pickle-Serialization.png}
+    \caption{Pickle-Serialization results}
+\end{figure}
+
+CPython performs better on Pickle benchmarks than PyPy. PyPy is around 3 - 6 times
+slower than CPython as the latter relies on CPython's optimized C implementations
+for lists, dicts, and generic objects. The only cases where PyPy wins are the
+pure-Python fallback implementations, which its JIT can optimize better. Overall,
+workloads that hit CPython's C fast-paths performs better in CPython than PyPy
+as PyPy lacks the equivalent C accelerators, while pure-Python serialization is
+the opposite.
+
+\subsubsection{Async and Concurrency}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/std/Async-Concurrency.png}
+    \caption{Async-Concurrency results}
+\end{figure}
+
+The performance in the Async and concurrency workloads are mixed but lean more
+towards CPython: PyPy is slightly faster up to 2.5 times in pure async scheduling
+tests that stay within Python-level task creation and tree traversal, where its 
+JIT can optimize coroutine-heavy traces. However, anything involving real
+networking, SSL, multiprocessing, thread pools, or event-loop integrations
+shows PyPy falling behind, often by 4 - 5 times.
+
+\subsubsection{IO, Formatting and Parsing}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/std/IO-Formats-Parsing.png}
+    \caption{IO-Formats-Parsing results}
+\end{figure}
+
+PyPy performs better in IO, formats, and parsing tasks when the workload is pure
+Python-JSON loads, TOML parsing, HTML parsing, regex microbenchmarks, logging,
+pprint, and argparse. They all show 2 - 4 times speedup, with a few extreme wins
+on very small operations. The outliers are for the benchmarks such as JSON dumps
+and coverage, where CPython's optimized C implementations come into the picture.
+Overall, Python-level parsing benefits from PyPy's JIT.
+
+\subsubsection{Other categories}
+
+Some of the other categories are: Database / SQL, Filesystem / OS / Stdlib,
+Templates / Web Frameworks, ThirdParty / Domain Workloads and Tokenizers /
+Language Tools.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/std/Filesystem-OS-Stdlib.png}
+        \caption{Filesystem, OS and Stdlib}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/std/Database-SQL.png}
+        \caption{Database / SQL}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/std/Templates-WebFrameworks.png}
+        \caption{Templates / Web Frameworks}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/std/ThirdParty-DomainWorkloads.png}
+        \caption{Third Party / Domain Workloads}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/std/Tokenizers-LanguageTools.png}
+        \caption{Tokenizers / Language Tools}
+    \end{subfigure}
+
+    \caption{Other categories}
+\end{figure}
+
+The results for the benchmarks have variations over the various benchmarks in these
+categories. One observation what we can get is that For the Templates / Web
+Frameworks benchmarks, PyPy performs slightly better than CPython in 5 out of the 6
+benchmark tests, but overall, none of them have a considerable huge speedup.
+
+\newpage
+
+\section{References}
+
+\begin{itemize}
+    \item My GitHub code repository: \\
+    \texttt{https://github.com/rennaMAhcuS/PythonEfficiency}
+
+    \item PyPerformance benchmark suite: \\
+    \texttt{https://github.com/python/pyperformance}
+
+    \item pyperf benchmarking toolkit (used by PyPerformance): \\
+    \texttt{https://github.com/psf/pyperf}
+
+    \item Numba benchmark suite: \\
+    \texttt{https://github.com/numba/numba-benchmark}
+
+    \item Official Numba benchmark results (Python 3.6): \\
+    \texttt{https://numba.readthedocs.io/en/stable/user/benchmarking.html}
+
+    \item Airspeed Velocity (ASV) - Python benchmarking framework: \\
+    \texttt{https://github.com/airspeed-velocity/asv}
+
+    \item PyBenchmarks (microbenchmark collections): \\
+    \texttt{https://pybenchmarks.org}
+\end{itemize}
+
 \end{document}

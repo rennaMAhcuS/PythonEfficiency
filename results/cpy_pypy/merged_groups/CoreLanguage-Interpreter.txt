@@ -1,0 +1,88 @@
+========== comprehensions ==========
+### comprehensions ###
+Mean +- std dev: 15.5 us +- 0.6 us -> 5.4 us +- 0.1 us: 2.86x faster
+Significant (t=135.63)
+========== generators ==========
+### generators ###
+Mean +- std dev: 28.0 ms +- 0.9 ms -> 12.9 ms +- 0.4 ms: 2.18x faster
+Significant (t=126.36)
+========== coroutines ==========
+### coroutines ###
+Mean +- std dev: 17.3 ms +- 0.5 ms -> 10.9 ms +- 0.2 ms: 1.59x faster
+Significant (t=94.06)
+========== async_generators ==========
+### async_generators ###
+Mean +- std dev: 199 ms +- 2 ms -> 144 ms +- 4 ms: 1.38x faster
+Significant (t=91.13)
+========== unpack_sequence ==========
+### unpack_sequence ###
+Mean +- std dev: 31.7 ns +- 1.0 ns -> 0.0 ns +- 0.0 ns: 794.12x faster
+Significant (t=254.91)
+========== deepcopy ==========
+### deepcopy ###
+Mean +- std dev: 256 us +- 3 us -> 60 us +- 2 us: 4.25x faster
+Significant (t=503.75)
+
+### deepcopy_memo ###
+Mean +- std dev: 31.0 us +- 0.3 us -> 5.9 us +- 0.1 us: 5.28x faster
+Significant (t=634.37)
+
+### deepcopy_reduce ###
+Mean +- std dev: 2.17 us +- 0.07 us -> 0.51 us +- 0.02 us: 4.29x faster
+Significant (t=175.78)
+========== float ==========
+### float ###
+Mean +- std dev: 55.4 ms +- 2.7 ms -> 7.2 ms +- 0.7 ms: 7.67x faster
+Significant (t=132.77)
+========== pidigits ==========
+### pidigits ###
+Mean +- std dev: 262 ms +- 6 ms -> 107 ms +- 3 ms: 2.46x faster
+Significant (t=178.46)
+========== fannkuch ==========
+### fannkuch ###
+Mean +- std dev: 274 ms +- 4 ms -> 61 ms +- 0 ms: 4.49x faster
+Significant (t=383.39)
+========== nbody ==========
+### nbody ###
+Mean +- std dev: 78.3 ms +- 1.3 ms -> 6.7 ms +- 0.1 ms: 11.73x faster
+Significant (t=416.54)
+========== spectral_norm ==========
+### spectral_norm ###
+Mean +- std dev: 78.4 ms +- 0.5 ms -> 3.4 ms +- 0.1 ms: 23.38x faster
+Significant (t=1260.73)
+========== hexiom ==========
+### hexiom ###
+Mean +- std dev: 4.74 ms +- 0.02 ms -> 1.18 ms +- 0.22 ms: 4.00x faster
+Significant (t=124.70)
+========== nqueens ==========
+### nqueens ###
+Mean +- std dev: 59.8 ms +- 1.9 ms -> 17.2 ms +- 0.2 ms: 3.47x faster
+Significant (t=175.39)
+========== chaos ==========
+### chaos ###
+Mean +- std dev: 49.6 ms +- 2.0 ms -> 3.1 ms +- 0.0 ms: 15.84x faster
+Significant (t=178.60)
+========== go ==========
+### go ###
+Mean +- std dev: 99.9 ms +- 1.6 ms -> 41.7 ms +- 14.4 ms: 2.39x faster
+Significant (t=31.08)
+========== richards ==========
+### richards ###
+Mean +- std dev: 35.9 ms +- 1.0 ms -> 1.1 ms +- 0.1 ms: 31.56x faster
+Significant (t=266.68)
+========== richards_super ==========
+### richards_super ###
+Mean +- std dev: 43.6 ms +- 2.5 ms -> 1.2 ms +- 0.1 ms: 35.41x faster
+Significant (t=128.71)
+========== deltablue ==========
+### deltablue ###
+Mean +- std dev: 2.67 ms +- 0.07 ms -> 0.19 ms +- 0.01 ms: 14.14x faster
+Significant (t=277.28)
+========== telco ==========
+### telco ###
+Mean +- std dev: 3.50 ms +- 0.06 ms -> 5.94 ms +- 0.16 ms: 1.70x slower
+Significant (t=-112.48)
+========== typing_runtime_protocols ==========
+### typing_runtime_protocols ###
+Mean +- std dev: 341 us +- 2 us -> 161 us +- 89 us: 2.12x faster
+Significant (t=15.72)

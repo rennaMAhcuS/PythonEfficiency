@@ -1,0 +1,12 @@
+========== pathlib ==========
+### pathlib ###
+Mean +- std dev: 16.1 ms +- 0.6 ms -> 11.0 ms +- 0.9 ms: 1.46x faster
+Significant (t=36.57)
+========== gc_collect ==========
+### create_gc_cycles ###
+Mean +- std dev: 1.02 ms +- 0.05 ms -> 3.18 ms +- 0.11 ms: 3.12x slower
+Significant (t=-137.96)
+========== gc_traversal ==========
+### gc_traversal ###
+Mean +- std dev: 2.77 ms +- 0.07 ms -> 4.79 ms +- 0.19 ms: 1.73x slower
+Significant (t=-76.27)

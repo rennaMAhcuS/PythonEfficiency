@@ -1,0 +1,24 @@
+========== django_template ==========
+### django_template ###
+Mean +- std dev: 21.8 ms +- 0.5 ms -> 4.1 ms +- 0.2 ms: 5.35x faster
+Significant (t=235.55)
+========== chameleon ==========
+### chameleon ###
+Mean +- std dev: 9.24 ms +- 0.15 ms -> 2.99 ms +- 0.09 ms: 3.09x faster
+Significant (t=277.64)
+========== genshi ==========
+### genshi_text ###
+Mean +- std dev: 15.5 ms +- 0.4 ms -> 5.5 ms +- 0.4 ms: 2.79x faster
+Significant (t=140.55)
+
+### genshi_xml ###
+Mean +- std dev: 33.7 ms +- 1.2 ms -> 15.0 ms +- 0.6 ms: 2.25x faster
+Significant (t=106.79)
+========== mako ==========
+### mako ###
+Mean +- std dev: 7.72 ms +- 0.17 ms -> 4.63 ms +- 0.19 ms: 1.67x faster
+Significant (t=95.51)
+========== sphinx ==========
+### sphinx ###
+Mean +- std dev: 633 ms +- 27 ms -> 1616 ms +- 346 ms: 2.55x slower
+Significant (t=-21.91)
